@@ -1,23 +1,41 @@
 {
   "name": "vscode-smoketest-check",
-  "publisher": "ms-vscode",
   "displayName": "vscode-smoketest-check",
-  "description": "A test extension used for smoke testing VS Code Extensions UI ",
   "version": "0.0.1",
-  "engines": {
-    "vscode": "1.57.0"
-  },
+  "private": "false",
+  "description": "A test extension used for smoke testing VS Code Extensions UI ",
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-    "onCommand:vscode-smoketest-check.smoketestCheck"
-  ],
-  "main": "./dist/extension.js",
-  "browser": "./dist/extension.js",
+  "homepage": "https://github.com/CodeEditorLand/CodeEditorLand#readme",
+  "bugs": {
+    "url": "https://github.com/CodeEditorLand/CodeEditorLand/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CodeEditorLand/CodeEditorLand.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Nikola Hristov",
+    "email": "nikola@nikolahristov.tech",
+    "url": "https://nikolahristov.tech"
+  },
+  "publisher": "playform",
+  "type": "module",
+  "main": "./dist/extension.js",
+  "browser": "./dist/extension.js",
+  "scripts": {
+    "compile": "webpack",
+    "lint": "eslint src --ext ts",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "prepublishOnly": "TypeScriptESBuild Source/**/*.ts",
+    "pretest": "yarn run test-compile && yarn run lint",
+    "test": "node ./out/test/runTest.js",
+    "test-compile": "tsc -p ./",
+    "test-watch": "tsc -watch -p ./",
+    "vscode:prepublish": "yarn run package",
+    "watch": "webpack --watch"
   },
   "contributes": {
     "commands": [
@@ -27,48 +45,30 @@
       }
     ]
   },
-  "scripts": {
-    "vscode:prepublish": "yarn run package",
-    "compile": "webpack",
-    "watch": "webpack --watch",
-    "package": "webpack --mode production --devtool hidden-source-map",
-    "test-compile": "tsc -p ./",
-    "test-watch": "tsc -watch -p ./",
-    "pretest": "yarn run test-compile && yarn run lint",
-    "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js",
-    "prepublishOnly": "TypeScriptESBuild Source/**/*.ts"
-  },
+  "activationEvents": [
+    "onCommand:vscode-smoketest-check.smoketestCheck"
+  ],
   "devDependencies": {
-    "@types/vscode": "1.83.1",
     "@types/glob": "8.1.0",
     "@types/mocha": "10.0.3",
     "@types/node": "20.x",
-    "eslint": "8.52.0",
+    "@types/vscode": "1.83.1",
     "@typescript-eslint/eslint-plugin": "6.9.0",
     "@typescript-eslint/parser": "6.9.0",
+    "eslint": "8.52.0",
     "glob": "10.3.10",
     "mocha": "10.2.0",
-    "typescript": "5.2.2",
-    "vscode-test": "1.5.2",
     "ts-loader": "9.5.0",
+    "typescript": "5.2.2",
+    "typescript-esbuild": "0.3.1",
+    "vscode-test": "1.5.2",
     "webpack": "5.89.0",
-    "webpack-cli": "5.1.4",
-    "typescript-esbuild": "0.3.1"
+    "webpack-cli": "5.1.4"
   },
-  "homepage": "https://github.com/CodeEditorLand/CodeEditorLand#readme",
-  "bugs": {
-    "url": "https://github.com/CodeEditorLand/CodeEditorLand/issues"
+  "engines": {
+    "vscode": "1.57.0"
   },
-  "license": "MIT",
-  "type": "module",
-  "private": "false",
   "publishConfig": {
     "access": "public"
-  },
-  "author": {
-    "name": "Nikola Hristov",
-    "email": "nikola@nikolahristov.tech",
-    "url": "https://nikolahristov.tech"
   }
 }
