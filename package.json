@@ -1,42 +1,21 @@
 {
 	"name": "vscode-smoketest-check",
+	"publisher": "ms-vscode",
 	"displayName": "vscode-smoketest-check",
-	"version": "0.0.1",
-	"private": "false",
 	"description": "A test extension used for smoke testing VS Code Extensions UI ",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.57.0"
+	},
 	"categories": [
 		"Other"
 	],
-	"homepage": "https://github.com/CodeEditorLand/CodeEditorLand#readme",
-	"bugs": {
-		"url": "https://github.com/CodeEditorLand/CodeEditorLand/issues"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/CodeEditorLand/CodeEditorLand.git"
-	},
-	"license": "MIT",
-	"author": {
-		"name": "Nikola Hristov",
-		"email": "nikola@nikolahristov.tech",
-		"url": "https://nikolahristov.tech"
-	},
-	"publisher": "playform",
-	"type": "module",
+	"activationEvents": [
+		"onCommand:vscode-smoketest-check.smoketestCheck"
+	],
 	"main": "./dist/extension.js",
 	"browser": "./dist/extension.js",
-	"scripts": {
-		"compile": "webpack",
-		"lint": "eslint src --ext ts",
-		"package": "webpack --mode production --devtool hidden-source-map",
-		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'",
-		"pretest": "yarn run test-compile && yarn run lint",
-		"test": "node ./out/test/runTest.js",
-		"test-compile": "tsc -p ./",
-		"test-watch": "tsc -watch -p ./",
-		"vscode:prepublish": "yarn run package",
-		"watch": "webpack --watch"
-	},
+	"repository": "https://github.com/microsoft/vscode-smoketest-check",
 	"contributes": {
 		"commands": [
 			{
@@ -45,30 +24,31 @@
 			}
 		]
 	},
-	"activationEvents": [
-		"onCommand:vscode-smoketest-check.smoketestCheck"
-	],
+	"scripts": {
+		"vscode:prepublish": "yarn run package",
+		"compile": "webpack",
+		"watch": "webpack --watch",
+		"package": "webpack --mode production --devtool hidden-source-map",
+		"test-compile": "tsc -p ./",
+		"test-watch": "tsc -watch -p ./",
+		"pretest": "yarn run test-compile && yarn run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
 	"devDependencies": {
-		"@types/glob": "8.1.0",
-		"@types/mocha": "10.0.3",
-		"@types/node": "20.x",
-		"@types/vscode": "1.83.1",
-		"@typescript-eslint/eslint-plugin": "6.9.0",
-		"@typescript-eslint/parser": "6.9.0",
-		"eslint": "8.52.0",
-		"glob": "10.3.10",
-		"mocha": "10.2.0",
-		"ts-loader": "9.5.0",
-		"typescript": "5.2.2",
-		"typescript-esbuild": "0.3.1",
-		"vscode-test": "1.5.2",
-		"webpack": "5.89.0",
-		"webpack-cli": "5.1.4"
-	},
-	"engines": {
-		"vscode": "1.57.0"
-	},
-	"publishConfig": {
-		"access": "public"
+		"@types/vscode": "^1.57.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.2.2",
+		"@types/node": "14.x",
+		"eslint": "^7.27.0",
+		"@typescript-eslint/eslint-plugin": "^4.26.0",
+		"@typescript-eslint/parser": "^4.26.0",
+		"glob": "^7.1.7",
+		"mocha": "^8.4.0",
+		"typescript": "^4.3.2",
+		"vscode-test": "^1.5.2",
+		"ts-loader": "^9.2.2",
+		"webpack": "^5.38.1",
+		"webpack-cli": "^4.7.0"
 	}
 }
