@@ -1,33 +1,8 @@
 {
-	"name": "vscode-smoketest-check",
-	"displayName": "vscode-smoketest-check",
-	"version": "0.0.1",
-	"private": false,
-	"description": "A test extension used for smoke testing VS Code Extensions UI ",
-	"homepage": "HTTPS://GitHub.Com/CodeEditorLand/LandSmoketestCheck#readme",
-	"bugs": {
-		"url": "HTTPS://GitHub.Com/CodeEditorLand/LandSmoketestCheck/issues"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+HTTPS://github.com/CodeEditorLand/LandSmoketestCheck.git"
-	},
-	"license": "SEE LICENSE IN LICENSE",
-	"author": {
-		"name": "Land",
-		"email": "Land@Playform.Cloud",
-		"url": "HTTPS://Land.Playform.Cloud"
-	},
-	"type": "module",
-	"main": "./dist/extension.js",
+	"activationEvents": [
+		"onCommand:vscode-smoketest-check.smoketestCheck"
+	],
 	"browser": "./dist/extension.js",
-	"scripts": {
-		"Document": "Document 'Source/**/*.ts'",
-		"compile": "webpack",
-		"prepublishOnly": "Build 'Source/**/*.ts'",
-		"test-compile": "tsc -p ./",
-		"test-watch": "tsc -watch -p ./"
-	},
 	"contributes": {
 		"commands": [
 			{
@@ -36,18 +11,22 @@
 			}
 		]
 	},
-	"activationEvents": [
-		"onCommand:vscode-smoketest-check.smoketestCheck"
-	],
+	"description": "A test extension used for smoke testing VS Code Extensions UI ",
 	"devDependencies": {
 		"@playform/build": "0.0.7",
-		"@playform/document": "0.0.6",
 		"@types/glob": "8.1.0",
 		"@types/node": "20.x",
 		"glob": "10.3.12",
 		"ts-loader": "9.5.1"
 	},
-	"publishConfig": {
-		"access": "public"
+	"displayName": "vscode-smoketest-check",
+	"main": "./dist/extension.js",
+	"name": "vscode-smoketest-check",
+	"scripts": {
+		"Document": "Document 'Source/**/*.ts'",
+		"compile": "webpack",
+		"prepublishOnly": "Build 'Source/**/*.ts'",
+		"test-compile": "tsc -p ./",
+		"test-watch": "tsc -watch -p ./"
 	}
 }
