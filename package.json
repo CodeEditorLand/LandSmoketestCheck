@@ -4,6 +4,9 @@
 	"version": "0.0.1",
 	"private": false,
 	"description": "A test extension used for smoke testing VS Code Extensions UI ",
+	"keywords": [
+		"land"
+	],
 	"homepage": "HTTPS://GitHub.Com/CodeEditorLand/LandSmoketestCheck#readme",
 	"bugs": {
 		"url": "HTTPS://GitHub.Com/CodeEditorLand/LandSmoketestCheck/issues"
