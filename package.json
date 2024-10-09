@@ -13,10 +13,10 @@
 	},
 	"description": "A test extension used for smoke testing VS Code Extensions UI ",
 	"devDependencies": {
-		"@types/glob": "^8.1.0",
+		"@types/glob": "8.1.0",
 		"@types/node": "22.x",
-		"glob": "^11.0.0",
-		"ts-loader": "^9.5.1"
+		"glob": "11.0.0",
+		"ts-loader": "9.5.1"
 	},
 	"displayName": "vscode-smoketest-check",
 	"main": "./dist/extension.js",
