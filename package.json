@@ -1,14 +1,8 @@
 {
-	"name": "vscode-smoketest-check",
-	"displayName": "vscode-smoketest-check",
-	"description": "A test extension used for smoke testing VS Code Extensions UI ",
-	"main": "./dist/extension.js",
+	"activationEvents": [
+		"onCommand:vscode-smoketest-check.smoketestCheck"
+	],
 	"browser": "./dist/extension.js",
-	"scripts": {
-		"compile": "webpack",
-		"test-compile": "tsc -p ./",
-		"test-watch": "tsc -watch -p ./"
-	},
 	"contributes": {
 		"commands": [
 			{
@@ -17,13 +11,19 @@
 			}
 		]
 	},
-	"activationEvents": [
-		"onCommand:vscode-smoketest-check.smoketestCheck"
-	],
+	"description": "A test extension used for smoke testing VS Code Extensions UI ",
 	"devDependencies": {
 		"@types/glob": "8.1.0",
 		"@types/node": "22.9.1",
 		"glob": "11.0.0",
 		"ts-loader": "9.5.1"
+	},
+	"displayName": "vscode-smoketest-check",
+	"main": "./dist/extension.js",
+	"name": "vscode-smoketest-check",
+	"scripts": {
+		"compile": "webpack",
+		"test-compile": "tsc -p ./",
+		"test-watch": "tsc -watch -p ./"
 	}
 }
